@@ -9,10 +9,7 @@ import static cz.kojotak.mtf.NazevTonu.G;
 import static cz.kojotak.mtf.NazevTonu.H;
 import static cz.kojotak.mtf.Posuvka.BECKO;
 import static cz.kojotak.mtf.Posuvka.KRIZEK;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.Arrays;
-import java.util.List;
+import static cz.kojotak.mtf.TestUtils.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -50,13 +47,4 @@ class TonyStupniceTest {
 				new Ton(A), new Ton(A, KRIZEK), new Ton(H) );
 	}
 	
-	private void assertContainsAll(List<Ton> seznamTonu , Ton ...ocekavaneTony) {
-		assertEquals( ocekavaneTony.length, seznamTonu.size() );
-		for(int i = 0; i < ocekavaneTony.length; i++) {
-			Ton testovany = seznamTonu.get(i);
-			Ton ocekavany = ocekavaneTony[i];
-			assertEquals(ocekavany, testovany);
-		}
-	}
-
 }
