@@ -3,5 +3,8 @@
   <groupId>cz.kojotak.mtf</groupId>
   <artifactId>bf</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Music theory fun - bass fitness</name>
+  <name>Music theory fun</name>
+  <properties>
+  	<maven.compiler.release>7</maven.compiler.release>
+  </properties>
 </project>
