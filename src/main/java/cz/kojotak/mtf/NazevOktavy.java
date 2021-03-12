@@ -41,17 +41,20 @@ public enum NazevOktavy implements Seraditelny<NazevOktavy> {
 	public String decorateString(final String nazevTonu) {
 		String firstLetter = nazevTonu.substring(0, 1);
 		String result;
+		String mark;
 		switch(this) {
 			case SUBKONTRA:
 			case KONTRA:
 			case VELKA:
 				result = firstLetter.toUpperCase();
+				mark = ",";
 				break;
 			default: 
 				result = firstLetter.toLowerCase();
+				mark = "'";
 		}
 		result += nazevTonu.substring(1);
-		result += "'".repeat(carek);
+		result += mark.repeat(carek);
 		return result;
 	};
 }

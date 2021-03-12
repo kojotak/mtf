@@ -31,7 +31,12 @@ public class TonToStringTest {
 	
 	@Test
 	void eSubkontra() {
-		assertEquals("E''", new Ton(E, SUBKONTRA).toString() );
+		assertEquals("E,,", new Ton(E, SUBKONTRA).toString() );
+	}
+	
+	@Test
+	void contraF() {
+		assertEquals("F,", new Ton(F, KONTRA).toString() );
 	}
 	
 	@Test
