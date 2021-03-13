@@ -1,17 +1,13 @@
 package cz.kojotak.mtf;
 
-import static cz.kojotak.mtf.NazevTonu.A;
 import static cz.kojotak.mtf.NazevTonu.C;
-import static cz.kojotak.mtf.NazevTonu.D;
 import static cz.kojotak.mtf.NazevTonu.E;
-import static cz.kojotak.mtf.NazevTonu.F;
 import static cz.kojotak.mtf.NazevTonu.G;
 import static cz.kojotak.mtf.NazevTonu.H;
-import static cz.kojotak.mtf.Posuvka.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static cz.kojotak.mtf.Posuvka.BECKO;
+import static cz.kojotak.mtf.TestUtils.assertContainsAll;
 
 import org.junit.jupiter.api.Test;
-import static cz.kojotak.mtf.TestUtils.*;
 
 public class TonyAkorduTest {
 

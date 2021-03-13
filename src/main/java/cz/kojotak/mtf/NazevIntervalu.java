@@ -1,0 +1,22 @@
+package cz.kojotak.mtf;
+
+public enum NazevIntervalu {
+
+	PRIMA,
+	SEKUNDA,
+	TERCIE,
+	KVARTA,
+	KVINTA,
+	SEXTA,
+	SEPTIMA,
+	OKTAVA,
+	NONA,
+	DECIMA,
+	UNDECIMA,
+	DUODECIMA,
+	TERCDECIMA,
+	KVARTDECIMA,
+	KVINTDECIMA,
+	;
+	
+}
