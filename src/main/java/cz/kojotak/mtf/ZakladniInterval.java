@@ -1,11 +1,7 @@
 package cz.kojotak.mtf;
-import static cz.kojotak.mtf.NazevIntervalu.DECIMA;
-import static cz.kojotak.mtf.NazevIntervalu.KVARTDECIMA;
-import static cz.kojotak.mtf.NazevIntervalu.NONA;
 import static cz.kojotak.mtf.NazevIntervalu.SEKUNDA;
 import static cz.kojotak.mtf.NazevIntervalu.SEPTIMA;
 import static cz.kojotak.mtf.NazevIntervalu.SEXTA;
-import static cz.kojotak.mtf.NazevIntervalu.TERCDECIMA;
 import static cz.kojotak.mtf.NazevIntervalu.TERCIE;
 import static cz.kojotak.mtf.TypIntervalu.CISTA;
 import static cz.kojotak.mtf.TypIntervalu.MALA;
