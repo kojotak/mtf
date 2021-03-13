@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class PultonyVZakladnichIntervalech {
 
+	//TODO parametricke testy se stale nespousteji z mavenu :/
 	@MethodSource
 	@ParameterizedTest
 	void pultonyVIntervalu(int ocekavanychPultonu, ZakladniInterval interval) {

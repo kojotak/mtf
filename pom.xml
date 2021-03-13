@@ -10,21 +10,36 @@
 		<maven.compiler.release>15</maven.compiler.release>
 		<maven.compiler.target>15</maven.compiler.target>
 		<maven.compiler.source>15</maven.compiler.source>
-		<junit5.version>5.7.0</junit5.version>
+		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<junit.jupiter.version>5.7.0</junit.jupiter.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit5.version}</version>
+			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-params</artifactId>
-		    <version>${junit5.version}</version>
+		    <version>${junit.jupiter.version}</version>
 		    <scope>test</scope>
 		</dependency>
 	</dependencies>
+	
+	<build>
+		<!-- 
+			explicit plugn version 2.22.0 fixes not running junit 6 in maven 3.6.X
+			https://dzone.com/articles/why-your-junit-5-tests-are-not-running-under-maven
+		 -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.version}</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
