@@ -1,17 +1,18 @@
 package cz.kojotak.mtf;
 
-import static cz.kojotak.mtf.TypIntervalu.*;
+import static cz.kojotak.mtf.NazevIntervalu.KVARTA;
+import static cz.kojotak.mtf.NazevIntervalu.KVINTA;
+import static cz.kojotak.mtf.TypIntervalu.ZVETSENA;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static cz.kojotak.mtf.NazevIntervalu.*;
+
 import java.util.stream.Stream;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class PultonyVZakladnichIntervalech {
+public class PultonyVZakladnichIntervalechTest {
 
-	//TODO parametricke testy se stale nespousteji z mavenu :/
 	@MethodSource
 	@ParameterizedTest
 	void pultonyVIntervalu(int ocekavanychPultonu, ZakladniInterval interval) {
