@@ -4,6 +4,10 @@ public enum SmerIntervalu {
 
 	VZESTUPNY,
 	
-// TODO dodelat Ton#pridejInterval a pridat testy
-//	SESTUPNY;
+//	SESTUPNY,
+	;
+	
+	public SmerIntervalu obraceny() {
+		return values()[ (ordinal() + 1) % values().length ];
+	}
 }

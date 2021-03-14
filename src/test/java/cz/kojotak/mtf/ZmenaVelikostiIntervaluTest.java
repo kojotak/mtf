@@ -8,12 +8,12 @@ public class ZmenaVelikostiIntervaluTest {
 
 	@Test
 	public void zvetseniMaleTercie() {
-		assertEquals(ZakladniInterval.TERCIE_VELKA, ZakladniInterval.TERCIE_MALA.zvetsena());
+		assertEquals(Interval.TERCIE_VELKA, Interval.TERCIE_MALA.zvetsena());
 	}
 	
 	@Test
 	public void triton() {
-		assertEquals(ZakladniInterval.KVINTA.zmensena().getPultonu(), ZakladniInterval.KVARTA.zvetsena().getPultonu());
+		assertEquals(Interval.KVINTA.zmensena().getPultonu(), Interval.KVARTA.zvetsena().getPultonu());
 	}
 
 }

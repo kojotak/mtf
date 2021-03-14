@@ -96,8 +96,8 @@ public class Ton {
 		}
 		NazevOktavy novaOktava = getOktava();
 		int pultonu = interval.getPultonu() + getPoradi();
-		while(pultonu>=ZakladniInterval.OKTAVA.getPultonu()) {
-			pultonu -= ZakladniInterval.OKTAVA.getPultonu();
+		while(pultonu>=Interval.OKTAVA.getPultonu()) {
+			pultonu -= Interval.OKTAVA.getPultonu();
 			novaOktava = novaOktava!=null ? novaOktava.dalsi() : null;
 		}
 		List<Ton> odpovidajiciTony = ZAKLADNI_TONY.get(pultonu);
@@ -115,10 +115,10 @@ public class Ton {
 		int poradi = NazevTonu.prvni().equals(nazev) ? 0 : IntervalyStupnice.DUROVA.getPultonu(nazev.ordinal()-1);
 		poradi += posuvka.getPultonu();
 		if(poradi<0) {
-			poradi += ZakladniInterval.OKTAVA.getPultonu();
+			poradi += Interval.OKTAVA.getPultonu();
 		}
-		if(poradi >= ZakladniInterval.OKTAVA.getPultonu()) {
-			poradi -= ZakladniInterval.OKTAVA.getPultonu();
+		if(poradi >= Interval.OKTAVA.getPultonu()) {
+			poradi -= Interval.OKTAVA.getPultonu();
 		}
 		return poradi;
 	}

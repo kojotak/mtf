@@ -1,7 +1,7 @@
 package cz.kojotak.mtf;
 
 import static cz.kojotak.mtf.JednoduchaVzdalenost.*;
-import static cz.kojotak.mtf.ZakladniInterval.*;
+import static cz.kojotak.mtf.Interval.*;
 
 import java.util.List;
 public enum IntervalyStupnice {

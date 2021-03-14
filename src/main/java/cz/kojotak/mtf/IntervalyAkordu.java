@@ -1,6 +1,6 @@
 package cz.kojotak.mtf;
 
-import static cz.kojotak.mtf.ZakladniInterval.*;
+import static cz.kojotak.mtf.Interval.*;
 
 import java.util.List;
 
@@ -20,10 +20,10 @@ public enum IntervalyAkordu {
 	SEPTAKORD_ZMENSENY(TERCIE_MALA, KVINTA_ZMENSENA, SEPTIMA_MALA),
 	;
 	
-	private IntervalyAkordu(ZakladniInterval ... intervaly) {
+	private IntervalyAkordu(Interval ... intervaly) {
 		this.intervaly = intervaly;
 	}
-	private final ZakladniInterval[] intervaly;
+	private final Interval[] intervaly;
 	public int getPultonu(int stupen) {
 		if(stupen > intervaly.length) {
 			throw new IllegalArgumentException("stupnice " + this.name() + " nema " + stupen  +" stupnu");

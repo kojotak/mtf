@@ -2,7 +2,7 @@ package cz.kojotak.mtf;
 
 
 import static cz.kojotak.mtf.Posuvka.*;
-import static cz.kojotak.mtf.ZakladniInterval.*;
+import static cz.kojotak.mtf.Interval.*;
 import static cz.kojotak.mtf.NazevOktavy.*;
 import static cz.kojotak.mtf.NazevTonu.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,4 +41,13 @@ public class TonoveIntervalyTest {
 		assertEquals(new Ton(G, Posuvka.KRIZEK, VELKA), new Ton(G, VELKA).pridejInterval(SEKUNDA_MALA));
 	}
 
+	@Test
+	void velkaSekundZVelkehoD() {
+		assertEquals(new Ton(C, VELKA), new Ton(D, VELKA).pridejInterval(SEKUNDA_VELKA.otocena()));
+	}
+	
+	@Test
+	void pultonNizeNezMaleC() {
+		assertEquals(new Ton(H, VELKA), new Ton(C, MALA).pridejInterval(SEKUNDA_MALA.otocena()));
+	}
 }
