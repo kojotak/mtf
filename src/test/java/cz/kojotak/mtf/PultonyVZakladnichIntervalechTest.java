@@ -26,13 +26,11 @@ public class PultonyVZakladnichIntervalechTest {
 	      Arguments.of(1, ZakladniInterval.TERCIE_MALA.zmensena().zmensena()),
 	      Arguments.of(1, ZakladniInterval.PRIMA.zvetsena()),
 	      
-	      
 	      Arguments.of(2, ZakladniInterval.PRIMA.zvetsena().zvetsena()),
 	      Arguments.of(2, ZakladniInterval.SEKUNDA_MALA.zvetsena()),
 	      Arguments.of(2, ZakladniInterval.SEKUNDA_VELKA),
 	      Arguments.of(2, ZakladniInterval.TERCIE_MALA.zmensena()),
 	      Arguments.of(2, ZakladniInterval.TERCIE_VELKA.zmensena().zmensena()),
-	      
 	      
 	      Arguments.of(3, ZakladniInterval.TERCIE_MALA),
 	      Arguments.of(3, ZakladniInterval.SEKUNDA_MALA.zvetsena().zvetsena()),
@@ -41,8 +39,8 @@ public class PultonyVZakladnichIntervalechTest {
 	      
 	      Arguments.of(4, ZakladniInterval.TERCIE_VELKA),
 	      Arguments.of(4, ZakladniInterval.TERCIE_MALA.zvetsena()),
-	      Arguments.of(4, ZakladniInterval.KVARTA.zmensena()),
 	      Arguments.of(4, ZakladniInterval.SEKUNDA_VELKA.zvetsena().zvetsena()),
+	      Arguments.of(4, ZakladniInterval.KVARTA.zmensena()),
 	      
 	      Arguments.of(5, ZakladniInterval.KVARTA),
 	      Arguments.of(5, ZakladniInterval.TERCIE_VELKA.zvetsena()),
