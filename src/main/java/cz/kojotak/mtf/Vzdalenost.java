@@ -1,6 +1,6 @@
 package cz.kojotak.mtf;
 
-public interface Interval {
+public interface Vzdalenost {
 
 	int getPultonu();
 

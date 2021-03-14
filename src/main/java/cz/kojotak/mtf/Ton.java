@@ -90,7 +90,7 @@ public class Ton {
 		return poradi;
 	}
 
-	public Ton pridejInterval(Interval interval) {
+	public Ton pridejInterval(Vzdalenost interval) {
 		if(interval == null) {
 			throw new IllegalArgumentException();
 		}

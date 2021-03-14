@@ -20,17 +20,17 @@ public enum IntervalyAkordu {
 	SEPTAKORD_ZMENSENY(TERCIE_MALA, KVINTA_ZMENSENA, SEPTIMA_MALA),
 	;
 	
-	private IntervalyAkordu(Interval ... intervaly) {
+	private IntervalyAkordu(ZakladniInterval ... intervaly) {
 		this.intervaly = intervaly;
 	}
-	private final Interval[] intervaly;
+	private final ZakladniInterval[] intervaly;
 	public int getPultonu(int stupen) {
 		if(stupen > intervaly.length) {
 			throw new IllegalArgumentException("stupnice " + this.name() + " nema " + stupen  +" stupnu");
 		}
 		return intervaly[stupen].getPultonu();
 	}
-	public List<Interval> getIntervaly() {
+	public List<Vzdalenost> getIntervaly() {
 		return List.of(intervaly);
 	}
 	

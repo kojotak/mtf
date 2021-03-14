@@ -1,6 +1,6 @@
 package cz.kojotak.mtf;
 
-public enum Posuvka implements Interval {
+public enum Posuvka implements Vzdalenost {
 	ODRAZKA(0),
 	KRIZEK(1),
 	BECKO(-1),

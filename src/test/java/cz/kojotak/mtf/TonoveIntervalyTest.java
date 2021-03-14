@@ -2,9 +2,9 @@ package cz.kojotak.mtf;
 
 
 import static cz.kojotak.mtf.Posuvka.*;
+import static cz.kojotak.mtf.ZakladniInterval.*;
 import static cz.kojotak.mtf.NazevOktavy.*;
 import static cz.kojotak.mtf.NazevTonu.*;
-import static cz.kojotak.mtf.ZakladniInterval.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;

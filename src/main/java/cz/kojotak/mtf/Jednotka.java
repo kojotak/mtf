@@ -1,6 +1,6 @@
 package cz.kojotak.mtf;
 
-public enum Jednotka implements Interval {
+public enum Jednotka implements Vzdalenost {
 	PULTON(1),
 	TON(2),
 	;
