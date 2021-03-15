@@ -19,15 +19,13 @@ public enum NazevIntervalu {
 	SEXTA(VI),
 	SEPTIMA(VII),
 	OKTAVA(VIII), //I?
-	
-	//TODO doplnit switch
-//	NONA(II),
-//	DECIMA(III),
-//	UNDECIMA(IV),
-//	DUODECIMA(V),
-//	TERCDECIMA(VI),
-//	KVARTDECIMA(VII),
-//	KVINTDECIMA(VIII),
+	NONA(II),
+	DECIMA(III),
+	UNDECIMA(IV),
+	DUODECIMA(V),
+	TERCDECIMA(VI),
+	KVARTDECIMA(VII),
+	KVINTDECIMA(VIII),
 	;
 	
 	private final Stupen stupen;

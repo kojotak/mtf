@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
-public class PultonyVZakladnichIntervalechTest {
+import static cz.kojotak.mtf.TypIntervalu.*;
+public class PultonyIntervalechTest {
 
 	@MethodSource
 	@ParameterizedTest
@@ -82,7 +82,19 @@ public class PultonyVZakladnichIntervalechTest {
 	      
 	      Arguments.of(12, Interval.OKTAVA),
 	      Arguments.of(12, Interval.SEPTIMA_VELKA.zvetsena()),
-	      Arguments.of(12, Interval.SEPTIMA_MALA.zvetsena().zvetsena())
+	      Arguments.of(12, Interval.SEPTIMA_MALA.zvetsena().zvetsena()),
+	      
+	      Arguments.of(13, new Interval(NazevIntervalu.NONA, MALY)),
+	      Arguments.of(14, new Interval(NazevIntervalu.NONA, VELKY)),
+	      Arguments.of(15, new Interval(NazevIntervalu.DECIMA, MALY)),
+	      Arguments.of(16, new Interval(NazevIntervalu.DECIMA, VELKY)),
+	      Arguments.of(17, new Interval(NazevIntervalu.UNDECIMA)),
+	      Arguments.of(19, new Interval(NazevIntervalu.DUODECIMA)),
+	      Arguments.of(20, new Interval(NazevIntervalu.TERCDECIMA, MALY)),
+	      Arguments.of(21, new Interval(NazevIntervalu.TERCDECIMA, VELKY)),
+	      Arguments.of(22, new Interval(NazevIntervalu.KVARTDECIMA, MALY)),
+	      Arguments.of(23, new Interval(NazevIntervalu.KVARTDECIMA, VELKY)),
+	      Arguments.of(24, new Interval(NazevIntervalu.KVINTDECIMA, VELKY))
 		);
 	}
 }

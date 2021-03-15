@@ -62,6 +62,13 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 			case SEXTA: return 9;
 			case SEPTIMA: return 11;
 			case OKTAVA: return 12;
+			case NONA: return 14;
+			case DECIMA: return 16;
+			case UNDECIMA: return 17;
+			case DUODECIMA: return 19;
+			case TERCDECIMA: return 21;
+			case KVARTDECIMA: return 23;
+			case KVINTDECIMA: return 24;
 			default: throw new IllegalArgumentException("neznamy interval " + nazev);
 		}
 	}
