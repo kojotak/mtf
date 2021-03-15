@@ -3,8 +3,7 @@ package cz.kojotak.mtf;
 public enum SmerIntervalu {
 
 	VZESTUPNY,
-	
-//	SESTUPNY,
+	SESTUPNY,
 	;
 	
 	public SmerIntervalu obraceny() {

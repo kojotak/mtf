@@ -100,7 +100,11 @@ public class Ton {
 			pultonu -= Interval.OKTAVA.getPultonu();
 			novaOktava = novaOktava!=null ? novaOktava.dalsi() : null;
 		}
-		List<Ton> odpovidajiciTony = ZAKLADNI_TONY.get(pultonu);
+		while(pultonu<0) {
+			pultonu += Interval.OKTAVA.getPultonu();
+			novaOktava = novaOktava!=null ? novaOktava.predchozi() : null;
+		}
+		List<Ton> odpovidajiciTony = ZAKLADNI_TONY.get(Math.abs(pultonu));
 		Ton odpovidajiciTon = odpovidajiciTony.get(0);
 		for(Ton ton : odpovidajiciTony) {
 			//najdi vyssi odpovidajici ton, ale se stejnou posuvkou

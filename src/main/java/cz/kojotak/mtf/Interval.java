@@ -49,7 +49,6 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 	}
 	
 	public Interval otocena() {
-		//TODO SmerIntervalu vs +/- znamenko u Vzdalenost.getPultonu
 		return new Interval(nazev, typ, smer.obraceny());
 	}
 	
@@ -89,7 +88,11 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 			case DVOJZVETSENY:
 				result += 2;
 		}
-		return result;
+		switch(smer) {
+			case SESTUPNY: return -1 * result;
+			case VZESTUPNY: return result;
+			default: throw new IllegalStateException("neznamy smer " + smer);
+		}
 	}
 
 }

@@ -46,9 +46,8 @@ public class TonoveIntervalyTest {
 		assertEquals(new Ton(C, VELKA), new Ton(D, VELKA).pridejInterval(SEKUNDA_VELKA.otocena()));
 	}
 	
-	//TODO fixme
-//	@Test
-//	void pultonNizeNezMaleC() {
-//		assertEquals(new Ton(H, VELKA), new Ton(C, MALA).pridejInterval(SEKUNDA_MALA.otocena()));
-//	}
+	@Test
+	void pultonNizeNezMaleC() {
+		assertEquals(new Ton(H, VELKA), new Ton(C, MALA).pridejInterval(SEKUNDA_MALA.otocena()));
+	}
 }
