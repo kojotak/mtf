@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 
 public record Stupnice (Ton ton, IntervalyStupnice intervaly) {
 	
+	//TODO zacit stupnici podle tonu
+	
 	public List<Ton> getTonyStupnice(){
 		return intervaly.getIntervaly()
 				.stream()

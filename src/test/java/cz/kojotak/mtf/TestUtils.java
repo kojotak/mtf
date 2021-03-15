@@ -11,7 +11,7 @@ public class TestUtils {
 		for(int i = 0; i < ocekavaneTony.length; i++) {
 			Ton testovany = seznamTonu.get(i);
 			Ton ocekavany = ocekavaneTony[i];
-			assertEquals(ocekavany, testovany);
+			assertEquals(ocekavany.getPoradi(), testovany.getPoradi(), "t:"+testovany+",o:"+ocekavany);
 		}
 	}
 }
