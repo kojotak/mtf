@@ -14,10 +14,10 @@ public class JednoduchaVzdalenost implements Vzdalenost {
 		return pultonu;
 	}
 	
-	public static Vzdalenost[] rostouciSekvenceIntervalu(int maximum) {
-		Vzdalenost[] intervaly = new Vzdalenost[maximum];
-		for(int i = 0; i<maximum; i++) {
-			intervaly[i] = new JednoduchaVzdalenost(i);
+	public static Vzdalenost[] rostouciSekvenceIntervalu(int prvni, int posledni) {
+		Vzdalenost[] intervaly = new Vzdalenost[posledni-prvni];
+		for(int i = prvni; i<posledni; i++) {
+			intervaly[i-prvni] = new JednoduchaVzdalenost(i);
 		}
 		return intervaly;
 	}

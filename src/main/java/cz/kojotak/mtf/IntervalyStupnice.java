@@ -12,7 +12,7 @@ public enum IntervalyStupnice {
 	PENTATONIKA_DUROVA(SEKUNDA_VELKA, TERCIE_VELKA, KVINTA, SEXTA_VELKA, OKTAVA),
 	PENTATONIKA_MOLLOVA(TERCIE_MALA, KVARTA, KVINTA, SEPTIMA_MALA, OKTAVA),
 	
-	CHROMATICKA( rostouciSekvenceIntervalu(OKTAVA.getPultonu()) ),
+	CHROMATICKA( rostouciSekvenceIntervalu(1, OKTAVA.getPultonu()+1) ),
 	;
 	
 	private IntervalyStupnice(Vzdalenost ... intervaly) {
