@@ -41,22 +41,22 @@ class TonyStupniceTest extends TestovaciTony {
 		 Arguments.of(new Stupnice(c, IntervalyStupnice.PENTATONIKA_MOLLOVA), List.of(  c, es, f, g, hes, c )),
 		 
 		 Arguments.of(new Stupnice(c, IntervalyStupnice.CHROMATICKA), List.of(  c, cis, d, dis, e, f, fis, g, gis, a, ais, h, c ))
-		 //,
-//		 Arguments.of(new Stupnice(ais, IntervalyStupnice.MOLLOVA), List.of(  ais, his, cis, dis, eis, fis, gis, ais )),
-//		 Arguments.of(new Stupnice(dis, IntervalyStupnice.MOLLOVA), List.of(  dis, eis, fis, gis, ais, h, cis, dis )),
-//		 Arguments.of(new Stupnice(gis, IntervalyStupnice.MOLLOVA), List.of(  gis, ais, h, cis, dis, e, fis, gis )),
-//		 Arguments.of(new Stupnice(cis, IntervalyStupnice.MOLLOVA), List.of(  cis, dis, e, fis, gis, a, h, cis )),
-//		 Arguments.of(new Stupnice(fis, IntervalyStupnice.MOLLOVA), List.of(  fis, gis, a, h, cis, d, e, fis )),
-//		 Arguments.of(new Stupnice(h, IntervalyStupnice.MOLLOVA), List.of(  h, cis, d, e, fis, g, a, h )),
-//		 Arguments.of(new Stupnice(e, IntervalyStupnice.MOLLOVA), List.of(  e, fis, g, a, h, c, d, e )),
-//		 Arguments.of(new Stupnice(a, IntervalyStupnice.MOLLOVA), List.of(  a, h, c, d, e, f, g, a )),
-//		 Arguments.of(new Stupnice(d, IntervalyStupnice.MOLLOVA), List.of(  d, e, f, g, a, b, c, d )),
-//		 Arguments.of(new Stupnice(g, IntervalyStupnice.MOLLOVA), List.of(  g, a, b, c, d, es, f, g )),
-//		 Arguments.of(new Stupnice(c, IntervalyStupnice.MOLLOVA), List.of(  c, d, es, f, g, as, b, c )),
-//		 Arguments.of(new Stupnice(f, IntervalyStupnice.MOLLOVA), List.of(  f, g, as, b, c, des, es, f )),
-//		 Arguments.of(new Stupnice(b, IntervalyStupnice.MOLLOVA), List.of(  b, c, des, es, f, ges, as, b )),
-//		 Arguments.of(new Stupnice(es, IntervalyStupnice.MOLLOVA), List.of(  es, f, ges, as, b, ces, des, es )),
-//		 Arguments.of(new Stupnice(as, IntervalyStupnice.MOLLOVA), List.of(  as, b, ces, des, es, fes, ges, as ))
+		 ,
+		 Arguments.of(new Stupnice(ais, IntervalyStupnice.MOLLOVA), List.of(  ais, his, cis, dis, eis, fis, gis, ais )),
+		 Arguments.of(new Stupnice(dis, IntervalyStupnice.MOLLOVA), List.of(  dis, eis, fis, gis, ais, h, cis, dis )),
+		 Arguments.of(new Stupnice(gis, IntervalyStupnice.MOLLOVA), List.of(  gis, ais, h, cis, dis, e, fis, gis )),
+		 Arguments.of(new Stupnice(cis, IntervalyStupnice.MOLLOVA), List.of(  cis, dis, e, fis, gis, a, h, cis )),
+		 Arguments.of(new Stupnice(fis, IntervalyStupnice.MOLLOVA), List.of(  fis, gis, a, h, cis, d, e, fis )),
+		 Arguments.of(new Stupnice(h, IntervalyStupnice.MOLLOVA), List.of(  h, cis, d, e, fis, g, a, h )),
+		 Arguments.of(new Stupnice(e, IntervalyStupnice.MOLLOVA), List.of(  e, fis, g, a, h, c, d, e )),
+		 Arguments.of(new Stupnice(a, IntervalyStupnice.MOLLOVA), List.of(  a, h, c, d, e, f, g, a )),
+		 Arguments.of(new Stupnice(d, IntervalyStupnice.MOLLOVA), List.of(  d, e, f, g, a, b, c, d )),
+		 Arguments.of(new Stupnice(g, IntervalyStupnice.MOLLOVA), List.of(  g, a, b, c, d, es, f, g )),
+		 Arguments.of(new Stupnice(c, IntervalyStupnice.MOLLOVA), List.of(  c, d, es, f, g, as, b, c )),
+		 Arguments.of(new Stupnice(f, IntervalyStupnice.MOLLOVA), List.of(  f, g, as, b, c, des, es, f )),
+		 Arguments.of(new Stupnice(b, IntervalyStupnice.MOLLOVA), List.of(  b, c, des, es, f, ges, as, b )),
+		 Arguments.of(new Stupnice(es, IntervalyStupnice.MOLLOVA), List.of(  es, f, ges, as, b, ces, des, es )),
+		 Arguments.of(new Stupnice(as, IntervalyStupnice.MOLLOVA), List.of(  as, b, ces, des, es, fes, ges, as ))
 		 );
 	}		
 	
