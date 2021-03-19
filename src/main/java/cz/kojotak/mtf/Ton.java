@@ -35,8 +35,6 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 		this.nazev = nazev;
 		this.oktava = oktava;
 	}
-	
-	
 
 	@Override
 	public String toString() {
@@ -83,6 +81,13 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 			poradi -= Interval.OKTAVA.getPultonu();
 		}
 		return poradi;
+	}
+	
+	public int getMidiNumber() {
+		if(oktava==null) {
+			throw new IllegalStateException("Pro zjisteni MIDI cisla je nutne specifikovat oktavu");
+		}
+		return getPoradi() + (12 * (oktava.ordinal()+1))  ;
 	}
 
 }

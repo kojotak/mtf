@@ -1,8 +1,11 @@
 package cz.kojotak.mtf;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -58,6 +61,23 @@ class TonyStupniceTest extends TestovaciTony {
 		 Arguments.of(new Stupnice(es, IntervalyStupnice.MOLLOVA), List.of(  es, f, ges, as, b, ces, des, es )),
 		 Arguments.of(new Stupnice(as, IntervalyStupnice.MOLLOVA), List.of(  as, b, ces, des, es, fes, ges, as ))
 		 );
-	}		
+	}
 	
+	@MethodSource
+	@ParameterizedTest
+	public void midiTonCecka(int ocekavaneMidi, Ton ton) {
+		assertEquals(ocekavaneMidi, ton.getMidiNumber());
+	}
+
+	//https://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies
+	private static Stream<Arguments> midiTonCecka() {
+	    return Stream.of(
+	    		 Arguments.of( 12, new Ton(NazevTonu.C,NazevOktavy.SUBKONTRA) ),
+	    		 Arguments.of( 24, new Ton(NazevTonu.C,NazevOktavy.KONTRA) ),
+	    		 Arguments.of( 36, new Ton(NazevTonu.C,NazevOktavy.VELKA) ),
+	    		 Arguments.of( 48, new Ton(NazevTonu.C,NazevOktavy.MALA) ),
+	    		 Arguments.of( 60, new Ton(NazevTonu.C,NazevOktavy.JEDNOCARKOVANA) ),
+	    		 Arguments.of( 72, new Ton(NazevTonu.C,NazevOktavy.DVOJCARKOVANA) )
+	    		);
+	    }
 }
