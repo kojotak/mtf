@@ -12,6 +12,7 @@
 		<maven.compiler.source>16</maven.compiler.source>
 		<maven.compiler.version>3.8.1</maven.compiler.version>
 		<maven.surefire.version>2.22.2</maven.surefire.version>
+		<maven.jacoco.version>0.8.6</maven.jacoco.version>
 		<junit.jupiter.version>5.7.0</junit.jupiter.version>
 	</properties>
 
@@ -31,13 +32,32 @@
 	</dependencies>
 
 	<build>
-		<!-- explicit plugn version 2.22.0 fixes not running junit 6 in maven 3.6.X 
-			https://dzone.com/articles/why-your-junit-5-tests-are-not-running-under-maven -->
 		<plugins>
 			<plugin>
+				<!-- explicit plugn version 2.22.0 fixes not running junit 6 in maven 
+					3.6.X https://dzone.com/articles/why-your-junit-5-tests-are-not-running-under-maven -->
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven.surefire.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${maven.jacoco.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>generate-code-coverage-report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

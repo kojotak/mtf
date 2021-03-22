@@ -65,19 +65,32 @@ class TonyStupniceTest extends TestovaciTony {
 	
 	@MethodSource
 	@ParameterizedTest
-	public void midiTonCecka(int ocekavaneMidi, Ton ton) {
+	public void midiCislaTonu(int ocekavaneMidi, Ton ton) {
 		assertEquals(ocekavaneMidi, ton.getMidiNumber());
 	}
 
 	//https://www.inspiredacoustics.com/en/MIDI_note_numbers_and_center_frequencies
-	private static Stream<Arguments> midiTonCecka() {
+	private static Stream<Arguments> midiCislaTonu() {
 	    return Stream.of(
-	    		 Arguments.of( 12, new Ton(NazevTonu.C,NazevOktavy.SUBKONTRA) ),
-	    		 Arguments.of( 24, new Ton(NazevTonu.C,NazevOktavy.KONTRA) ),
-	    		 Arguments.of( 36, new Ton(NazevTonu.C,NazevOktavy.VELKA) ),
-	    		 Arguments.of( 48, new Ton(NazevTonu.C,NazevOktavy.MALA) ),
-	    		 Arguments.of( 60, new Ton(NazevTonu.C,NazevOktavy.JEDNOCARKOVANA) ),
-	    		 Arguments.of( 72, new Ton(NazevTonu.C,NazevOktavy.DVOJCARKOVANA) )
-	    		);
+	    		 Arguments.of( 12, new Ton(NazevTonu.C, NazevOktavy.SUBKONTRA) ),
+	    		 Arguments.of( 24, new Ton(NazevTonu.C, NazevOktavy.KONTRA) ),
+	    		 Arguments.of( 36, new Ton(NazevTonu.C, NazevOktavy.VELKA) ),
+	    		 Arguments.of( 48, new Ton(NazevTonu.C, NazevOktavy.MALA) ),
+	    		 Arguments.of( 55, new Ton(NazevTonu.G, NazevOktavy.MALA) ),
+	    		 Arguments.of( 56, new Ton(NazevTonu.G, Posuvka.KRIZEK, NazevOktavy.MALA) ),
+	    		 Arguments.of( 60, new Ton(NazevTonu.C, NazevOktavy.JEDNOCARKOVANA) ),
+	    		 Arguments.of( 72, new Ton(NazevTonu.C, NazevOktavy.DVOJCARKOVANA) )
+			);
 	    }
+	
+	@MethodSource
+	@ParameterizedTest
+	public void tonZMidiCisla(int midiCislo, Ton ocekavanyTon){
+		assertEquals(ocekavanyTon, Ton.ofMidi(midiCislo));
+	}
+
+	private static Stream<Arguments> tonZMidiCisla(){
+		//reuse the same data as for midiCislaTonu()
+		return midiCislaTonu();
+	}
 }

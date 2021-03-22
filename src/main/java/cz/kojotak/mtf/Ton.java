@@ -1,19 +1,23 @@
 package cz.kojotak.mtf;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
-	
+
+	private static final int PULTONU_V_OKTAVE = Interval.OKTAVA.getPultonu();
+
 	public static final Map<Integer, List<Ton>> ZAKLADNI_TONY = Stream
 			.of( NazevTonu.values() )
 			.flatMap( t-> Stream
 						.of( Posuvka.values() )
 						.map( p-> new Ton(t,p) ))
 			.collect( Collectors.groupingBy( Ton::getPoradi) );
-
+	
 	public Ton(NazevTonu nazev) {
 		this(nazev, null, null);
 	}
@@ -45,7 +49,7 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 			return result;
 		}
 	}
-
+	
 	public Ton pridejInterval(Vzdalenost interval) {
 		if(interval == null) {
 			throw new IllegalArgumentException();
@@ -75,10 +79,10 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 		int poradi = NazevTonu.prvni().equals(nazev) ? 0 : IntervalyStupnice.DUROVA.getPultonu(nazev.ordinal()-1);
 		poradi += posuvka.getPultonu();
 		if(poradi<0) {
-			poradi += Interval.OKTAVA.getPultonu();
+			poradi += PULTONU_V_OKTAVE;
 		}
-		if(poradi >= Interval.OKTAVA.getPultonu()) {
-			poradi -= Interval.OKTAVA.getPultonu();
+		if(poradi >= PULTONU_V_OKTAVE) {
+			poradi -= PULTONU_V_OKTAVE;
 		}
 		return poradi;
 	}
@@ -87,7 +91,23 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 		if(oktava==null) {
 			throw new IllegalStateException("Pro zjisteni MIDI cisla je nutne specifikovat oktavu");
 		}
-		return getPoradi() + (12 * (oktava.ordinal()+1))  ;
+		return getPoradi() + (PULTONU_V_OKTAVE * (oktava.ordinal()+1))  ;
+	}
+
+	public static Ton ofMidi(int midiNumber){
+		int idxOktavy = midiNumber / PULTONU_V_OKTAVE;
+		int idxTonu = midiNumber % PULTONU_V_OKTAVE;
+		NazevOktavy oktava = NazevOktavy.values()[idxOktavy-1];
+		Ton ton = vyberKandidat(ZAKLADNI_TONY.get(idxTonu));
+		return new Ton(ton.nazev(), ton.posuvka(), oktava);
+	}
+	
+	public static Ton vyberKandidat(List<Ton> kandidati) {
+		Collections.sort(
+					kandidati, Comparator.comparing( 
+							t -> Math.abs(t.posuvka().getPultonu())
+							 ) );
+		return kandidati.get(0);
 	}
 
 }
