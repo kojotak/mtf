@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public record Akord (Ton ton, IntervalyAkordu intervaly) {
+public record Akord (Ton ton, TypAkordu intervaly) {
 
 	public List<Ton> getTonyAkordu(){
 		return Stream.concat(

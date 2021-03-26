@@ -4,7 +4,7 @@ import static cz.kojotak.mtf.JednoduchaVzdalenost.*;
 import static cz.kojotak.mtf.Interval.*;
 
 import java.util.List;
-public enum IntervalyStupnice {
+public enum TypStupnice {
 
 	DUROVA(SEKUNDA_VELKA, TERCIE_VELKA, KVARTA, KVINTA, SEXTA_VELKA, SEPTIMA_VELKA, OKTAVA),
 	MOLLOVA(SEKUNDA_VELKA, TERCIE_MALA, KVARTA, KVINTA, SEXTA_MALA, SEPTIMA_MALA, OKTAVA),
@@ -15,7 +15,7 @@ public enum IntervalyStupnice {
 	CHROMATICKA( rostouciSekvenceIntervalu(1, OKTAVA.getPultonu()+1) ),
 	;
 	
-	private IntervalyStupnice(Vzdalenost ... intervaly) {
+	private TypStupnice(Vzdalenost ... intervaly) {
 		this.intervaly = intervaly;
 	}
 	private final Vzdalenost[] intervaly;

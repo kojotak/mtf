@@ -5,7 +5,7 @@ import static cz.kojotak.mtf.Interval.*;
 import java.util.List;
 
 /** @see https://cs.wikipedia.org/wiki/Seznam_akordov%C3%BDch_zna%C4%8Dek */
-public enum IntervalyAkordu {
+public enum TypAkordu {
 	KVINTAKORD_DUROVY(TERCIE_VELKA, KVINTA),
 	KVINTAKORD_MOLLOVY(TERCIE_MALA, KVINTA),
 	KVINTAKORD_ZVETSENY(TERCIE_VELKA, KVINTA_ZVETSENA),
@@ -20,7 +20,7 @@ public enum IntervalyAkordu {
 	SEPTAKORD_ZMENSENY(TERCIE_MALA, KVINTA_ZMENSENA, SEPTIMA_MALA),
 	;
 	
-	private IntervalyAkordu(Interval ... intervaly) {
+	private TypAkordu(Interval ... intervaly) {
 		this.intervaly = intervaly;
 	}
 	private final Interval[] intervaly;

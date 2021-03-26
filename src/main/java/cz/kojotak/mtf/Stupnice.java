@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public record Stupnice (Ton ton, IntervalyStupnice intervaly) {
+public record Stupnice (Ton ton, TypStupnice intervaly) {
 	
 	public List<Ton> getTonyStupnice(){
 		return Stream.concat(

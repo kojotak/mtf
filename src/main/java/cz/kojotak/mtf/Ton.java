@@ -76,7 +76,7 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 	}
 	
 	public int getPoradi() {
-		int poradi = NazevTonu.prvni().equals(nazev) ? 0 : IntervalyStupnice.DUROVA.getPultonu(nazev.ordinal()-1);
+		int poradi = NazevTonu.prvni().equals(nazev) ? 0 : TypStupnice.DUROVA.getPultonu(nazev.ordinal()-1);
 		poradi += posuvka.getPultonu();
 		if(poradi<0) {
 			poradi += PULTONU_V_OKTAVE;
@@ -92,6 +92,14 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 			throw new IllegalStateException("Pro zjisteni MIDI cisla je nutne specifikovat oktavu");
 		}
 		return getPoradi() + (PULTONU_V_OKTAVE * (oktava.ordinal()+1))  ;
+	}
+	
+	public Stupnice newStupnice(TypStupnice intervaly) {
+		return new Stupnice(this, intervaly);
+	}
+	
+	public Akord newAkord(TypAkordu intervaly) {
+		return new Akord(this, intervaly);
 	}
 
 	public static Ton ofMidi(int midiNumber){
