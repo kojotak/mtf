@@ -25,6 +25,16 @@ public class TonToStringTest {
 	}
 	
 	@Test
+	void maleSnizeneE() {
+		assertEquals("es", new Ton(E, BECKO, MALA).toString() );
+	}
+	
+	@Test
+	void velkeSnizeneA() {
+		assertEquals("As", new Ton(A, BECKO, VELKA).toString() );
+	}
+	
+	@Test
 	void maleHeses() {
 		assertEquals("heses", new Ton(H, DVOJBECKO, MALA).toString());
 	}

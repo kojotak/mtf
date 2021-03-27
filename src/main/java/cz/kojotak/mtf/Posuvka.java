@@ -20,7 +20,16 @@ public enum Posuvka implements Vzdalenost {
 		if(posunPultonu == 0) {
 			return nazevTonu;
 		}
-		String suffix = posunPultonu > 0 ? "is" : "es";
+		String suffix;
+		if(posunPultonu > 0) {
+			suffix = "is";
+		}else {
+			if( nazevTonu.toLowerCase().startsWith("e") || nazevTonu.toLowerCase().startsWith("a") ) {
+				suffix = "s";
+			}else {
+				suffix = "es";
+			}
+		}
 		return nazevTonu + suffix.repeat(Math.abs(posunPultonu));
 	};
 }
