@@ -1,26 +1,23 @@
 package cz.kojotak.mtf;
 
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public record Akord (Ton ton, Intervalovy intervaly) implements Obratitelny<Akord> {
 
 	public List<Ton> getTonyAkordu(){
-//TODO pouzit streamy
-//		return Stream.concat(
-//					Stream.of(ton),
-//					intervaly.getIntervaly().stream().map( i -> ton.pridejInterval(i) ))
-//			.sorted(Comparator.comparing(Ton::getPoradi))
-//			.collect(Collectors.toList());
-		
-		List<Ton> tony = new ArrayList<>();
-		Ton posledni = this.ton();
-		tony.add(posledni);
-		for(Interval interval : intervaly.getIntervaly()) {
-			posledni = posledni.pridejInterval(interval);
-			tony.add(posledni);
-		}
-		return tony;
+		return intervaly.getIntervaly().stream()
+				.collect(this::listSeZakladnimTonem, 
+						(list,i) -> list.add(list.getLast().pridejInterval(i)), 
+						LinkedList::addAll);
+	}
+	
+	private LinkedList<Ton> listSeZakladnimTonem(){
+		LinkedList<Ton> list = new LinkedList<Ton>();
+		list.add(ton);
+		return list;
 	}
 
 	@Override
