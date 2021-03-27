@@ -9,7 +9,7 @@ import static cz.kojotak.mtf.Stupen.VI;
 import static cz.kojotak.mtf.Stupen.VII;
 import static cz.kojotak.mtf.Stupen.VIII;
 
-public enum NazevIntervalu {
+public enum NazevIntervalu implements Obratitelny<NazevIntervalu>{
 
 	PRIMA(I),
 	SEKUNDA(II),
@@ -47,6 +47,17 @@ public enum NazevIntervalu {
 		default:
 			return false;
 		}
+	}
+
+	@Override
+	public NazevIntervalu obratit() {
+		Stupen novyStupen = getStupen().obratit();
+		for(NazevIntervalu i : values()) {
+			if(novyStupen.equals(i.getStupen())) {
+				return i;
+			}
+		}
+		throw new IllegalStateException("nelze obratit " + this);
 	}
 
 }

@@ -1,6 +1,6 @@
 package cz.kojotak.mtf;
 
-public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu smer) implements Vzdalenost {
+public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu smer) implements Vzdalenost, Obratitelny<Interval> {
 
 	public static final Interval PRIMA = new Interval( NazevIntervalu.PRIMA );
 	public static final Interval SEKUNDA_MALA = new Interval( NazevIntervalu.SEKUNDA, TypIntervalu.MALY );
@@ -50,6 +50,13 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 	
 	public Interval otocit() {
 		return new Interval(nazev, typ, smer.obraceny());
+	}
+	
+	@Override
+	public Interval obratit() {
+		TypIntervalu novyTyp = typ().obratit();
+		NazevIntervalu novyNazev = nazev().obratit();
+		return new Interval(novyNazev, novyTyp);
 	}
 	
 	public static int pultonuVDuroveStupnici(NazevIntervalu nazev) {

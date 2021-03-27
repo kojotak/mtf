@@ -1,6 +1,6 @@
 package cz.kojotak.mtf;
 
-public enum Stupen {
+public enum Stupen implements Obratitelny<Stupen> {
 
 	I,
 	II,
@@ -10,4 +10,15 @@ public enum Stupen {
 	VI,
 	VII,
 	VIII;
+	
+	public int poradi() {
+		return ordinal()+1;
+	}
+
+	@Override
+	public Stupen obratit() {
+		int ord = values().length - poradi();
+		return values()[ord];
+	}
+	
 }
