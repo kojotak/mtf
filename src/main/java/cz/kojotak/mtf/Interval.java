@@ -9,8 +9,8 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 	public static final Interval TERCIE_VELKA = new Interval( NazevIntervalu.TERCIE, TypIntervalu.VELKY );
 	public static final Interval KVARTA = new Interval( NazevIntervalu.KVARTA );
 	public static final Interval KVINTA = new Interval( NazevIntervalu.KVINTA );
-	public static final Interval KVINTA_ZMENSENA = new Interval( NazevIntervalu.KVINTA ).zmensena();
-	public static final Interval KVINTA_ZVETSENA = new Interval( NazevIntervalu.KVINTA ).zvetsena();
+	public static final Interval KVINTA_ZMENSENA = new Interval( NazevIntervalu.KVINTA ).zmensit();
+	public static final Interval KVINTA_ZVETSENA = new Interval( NazevIntervalu.KVINTA ).zvetsit();
 	public static final Interval SEXTA_MALA = new Interval( NazevIntervalu.SEXTA, TypIntervalu.MALY );
 	public static final Interval SEXTA_VELKA = new Interval( NazevIntervalu.SEXTA, TypIntervalu.VELKY );
 	public static final Interval SEPTIMA_MALA = new Interval( NazevIntervalu.SEPTIMA, TypIntervalu.MALY );
@@ -26,7 +26,7 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 		this(nazev, typ, SmerIntervalu.VZESTUPNY);
 	}
 	
-	public Interval zvetsena() {
+	public Interval zvetsit() {
 		switch(typ) {
 		case CISTY: return new Interval(nazev, TypIntervalu.ZVETSENY, smer);
 		case MALY: return new Interval(nazev, TypIntervalu.VELKY, smer);
@@ -37,7 +37,7 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 		}
 	}
 	
-	public Interval zmensena() {
+	public Interval zmensit() {
 		switch(typ) {
 		case CISTY: return new Interval(nazev, TypIntervalu.ZMENSENY, smer);
 		case MALY: return new Interval(nazev, TypIntervalu.ZMENSENY, smer);
@@ -48,7 +48,7 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 		}
 	}
 	
-	public Interval otocena() {
+	public Interval otocit() {
 		return new Interval(nazev, typ, smer.obraceny());
 	}
 	
