@@ -16,7 +16,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 class TonyStupniceTest extends TestovaciTony {
 	
 	@MethodSource
-	@ParameterizedTest
+	@ParameterizedTest(name="{index} {0} ma tony: {1}")
 	void pultonyVIntervalu(Stupnice stupnice, List<Ton> tony) {
 		assertContainsAll(stupnice.getTonyStupnice(), tony.toArray(new Ton[0]));
 	}
@@ -63,7 +63,7 @@ class TonyStupniceTest extends TestovaciTony {
 	}
 	
 	@MethodSource
-	@ParameterizedTest
+	@ParameterizedTest(name="{index} {1} ma MIDI cislo {0}")
 	public void midiCislaTonu(int ocekavaneMidi, Ton ton) {
 		assertEquals(ocekavaneMidi, ton.getMidiNumber());
 	}
@@ -83,7 +83,7 @@ class TonyStupniceTest extends TestovaciTony {
 	    }
 	
 	@MethodSource
-	@ParameterizedTest
+	@ParameterizedTest(name="{index} MIDI cislo {0} ma {1}")
 	public void tonZMidiCisla(int midiCislo, Ton ocekavanyTon){
 		assertEquals(ocekavanyTon, Ton.ofMidi(midiCislo));
 	}

@@ -11,7 +11,7 @@ import static cz.kojotak.mtf.TypIntervalu.*;
 public class PultonyIntervalechTest {
 
 	@MethodSource
-	@ParameterizedTest
+	@ParameterizedTest(name="{index} {1} ma {0} pultonu")
 	void pultonyVIntervalu(int ocekavanychPultonu, Interval interval) {
 		assertEquals(ocekavanychPultonu, interval.getPultonu());
 	}
