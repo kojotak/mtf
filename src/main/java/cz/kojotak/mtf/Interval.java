@@ -102,6 +102,10 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 		}
 	}
 	
+	public Stupen getStupen() {
+		return nazev().getStupen();
+	}
+	
 	@Override
 	public int getPultonu() {
 		int result = pultonuVDuroveStupnici(nazev);
