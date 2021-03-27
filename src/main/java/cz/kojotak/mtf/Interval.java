@@ -1,5 +1,7 @@
 package cz.kojotak.mtf;
 
+import java.util.List;
+
 public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu smer) implements Vzdalenost, Obratitelny<Interval> {
 
 	public static final Interval PRIMA = new Interval( NazevIntervalu.PRIMA );
@@ -8,6 +10,7 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 	public static final Interval TERCIE_MALA = new Interval( NazevIntervalu.TERCIE, TypIntervalu.MALY );
 	public static final Interval TERCIE_VELKA = new Interval( NazevIntervalu.TERCIE, TypIntervalu.VELKY );
 	public static final Interval KVARTA = new Interval( NazevIntervalu.KVARTA );
+	public static final Interval KVARTA_ZVETSENA = new Interval( NazevIntervalu.KVARTA, TypIntervalu.ZVETSENY );
 	public static final Interval KVINTA = new Interval( NazevIntervalu.KVINTA );
 	public static final Interval KVINTA_ZMENSENA = new Interval( NazevIntervalu.KVINTA ).zmensit();
 	public static final Interval KVINTA_ZVETSENA = new Interval( NazevIntervalu.KVINTA ).zvetsit();
@@ -16,7 +19,14 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 	public static final Interval SEPTIMA_MALA = new Interval( NazevIntervalu.SEPTIMA, TypIntervalu.MALY );
 	public static final Interval SEPTIMA_VELKA = new Interval( NazevIntervalu.SEPTIMA, TypIntervalu.VELKY );
 	public static final Interval OKTAVA = new Interval( NazevIntervalu.OKTAVA );
-	;
+	
+	
+	public static final List<Interval> ZAKLADNI_INTERVALY = List.of(
+			PRIMA,SEKUNDA_MALA, SEKUNDA_VELKA, TERCIE_MALA, TERCIE_VELKA,
+			KVARTA, KVARTA_ZVETSENA, /** TODO TRITON */ KVINTA_ZMENSENA,
+			SEXTA_MALA, SEXTA_VELKA, SEPTIMA_MALA, SEPTIMA_VELKA, OKTAVA
+			);
+	
 
 	public Interval(NazevIntervalu nazev) {
 		this(nazev, TypIntervalu.CISTY, SmerIntervalu.VZESTUPNY);
@@ -54,9 +64,21 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 	
 	@Override
 	public Interval obratit() {
-		TypIntervalu novyTyp = typ().obratit();
-		NazevIntervalu novyNazev = nazev().obratit();
-		return new Interval(novyNazev, novyTyp);
+		return new Interval(nazev().obratit(), typ().obratit());
+	}
+	
+	public Interval odecti(Interval interval) {
+		//TODO tohle je fakt amaterske a naivni
+		int pultonu = this.getPultonu() - interval.getPultonu();
+		if(pultonu<0) {
+			pultonu+=12;
+		}
+		for(Interval i : ZAKLADNI_INTERVALY) {
+			if(i.getPultonu() == pultonu) {
+				return i;
+			}
+		}
+		throw new IllegalArgumentException("neumim odecist " + interval + " od " + this);
 	}
 	
 	public static int pultonuVDuroveStupnici(NazevIntervalu nazev) {
