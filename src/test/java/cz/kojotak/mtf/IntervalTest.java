@@ -47,7 +47,7 @@ public class IntervalTest {
 	}
 	
 	@MethodSource
-	@ParameterizedTest(name="{index} {0} ma tony: {1}")
+	@ParameterizedTest(name="{index} intervaly: {1} maji stupen {0}")
 	void stupneIntervalu(Stupen ocekavanyStupen, Collection<Interval> intervaly) {
 		for(Interval interval : intervaly) {
 			assertEquals(ocekavanyStupen, interval.getStupen());
