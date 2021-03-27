@@ -58,7 +58,7 @@ public record Interval(NazevIntervalu nazev, TypIntervalu typ, SmerIntervalu sme
 		}
 	}
 	
-	public Interval otocit() {
+	public Interval otocSmer() {
 		return new Interval(nazev, typ, smer.obraceny());
 	}
 	

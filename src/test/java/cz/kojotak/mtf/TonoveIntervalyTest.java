@@ -43,11 +43,33 @@ public class TonoveIntervalyTest {
 
 	@Test
 	void velkaSekundZVelkehoD() {
-		assertEquals(new Ton(C, VELKA), new Ton(D, VELKA).pridejInterval(SEKUNDA_VELKA.otocit()));
+		assertEquals(new Ton(C, VELKA), new Ton(D, VELKA).pridejInterval(SEKUNDA_VELKA.otocSmer()));
+	}
+	
+	@Test
+	void velkaSekundZVelkehoE() {
+		//not Eses, but Fis
+		assertEquals(new Ton(F, Posuvka.KRIZEK, VELKA), new Ton(E, VELKA).pridejInterval(SEKUNDA_VELKA));
 	}
 	
 	@Test
 	void pultonNizeNezMaleC() {
-		assertEquals(new Ton(H, VELKA), new Ton(C, MALA).pridejInterval(SEKUNDA_MALA.otocit()));
+		assertEquals(new Ton(H, VELKA), new Ton(C, MALA).pridejInterval(SEKUNDA_MALA.otocSmer()));
 	}
+	
+	@Test
+	void pridejJedenStupenTriPultony() {
+		assertEquals(new Ton(D,Posuvka.KRIZEK), new Ton(C).pridejInterval(SEKUNDA_VELKA.zvetsit()));
+	}
+	
+//TODO opravit cz.kojotak.mtf.Ton.vyberKandidat(List<Ton>)
+//	@Test
+//	void pridejDvaStupneTriPultony() {
+//		assertEquals(new Ton(E,Posuvka.BECKO), new Ton(C).pridejInterval(TERCIE_MALA));
+//	}
+//	
+//	@Test
+//	void pridejTriStupneTriPultony() {
+//		assertEquals(new Ton(F,Posuvka.DVOJBECKO), new Ton(C).pridejInterval(KVARTA.zmensit().zmensit()));
+//	}
 }

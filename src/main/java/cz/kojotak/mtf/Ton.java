@@ -65,7 +65,7 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 			novaOktava = novaOktava!=null ? novaOktava.predchozi() : null;
 		}
 		List<Ton> odpovidajiciTony = ZAKLADNI_TONY.get(Math.abs(pultonu));
-		Ton odpovidajiciTon = odpovidajiciTony.get(0);
+		Ton odpovidajiciTon = vyberKandidat( odpovidajiciTony );
 		for(Ton ton : odpovidajiciTony) {
 			//najdi vyssi odpovidajici ton, ale se stejnou posuvkou
 			if(this.posuvka.equals(ton.posuvka)) {
