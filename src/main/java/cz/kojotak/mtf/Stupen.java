@@ -11,13 +11,13 @@ public enum Stupen implements Obratitelny<Stupen> {
 	VII,
 	VIII;
 	
-	public int poradi() {
+	public int getPoradi() {
 		return ordinal()+1;
 	}
 
 	@Override
 	public Stupen obratit() {
-		int ord = values().length - poradi();
+		int ord = values().length - getPoradi();
 		return values()[ord];
 	}
 	
