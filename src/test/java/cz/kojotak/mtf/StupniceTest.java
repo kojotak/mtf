@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.List;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -13,7 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource;
  * @see https://cs.wikipedia.org/wiki/Mollov%C3%A1_stupnice
  * @see https://cs.wikipedia.org/wiki/Durov%C3%A1_stupnice
  */
-class TonyStupniceTest extends TestovaciTony {
+class StupniceTest extends TestovaciTony {
 	
 	@MethodSource
 	@ParameterizedTest(name="{index} {0} ma tony: {1}")
@@ -92,4 +93,11 @@ class TonyStupniceTest extends TestovaciTony {
 		//reuse the same data as for midiCislaTonu()
 		return midiCislaTonu();
 	}
+	
+	@Test
+	public void chromatickaStupnice() {
+		List<Ton> tony = new Stupnice(c, TypStupnice.CHROMATICKA).getTonyStupnice();
+		assertContainsAll(tony, c, cis, d, dis, e, f, fis, g, gis, a, ais, h, c);
+	}
 }
+ 
