@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import cz.kojotak.mtf.stupnice.DiatonickaStupnice;
+
 public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 
 	private static final int PULTONU_V_OKTAVE = Interval.OKTAVA.getPultonu();
@@ -95,7 +97,7 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 	}
 	
 	public Stupnice newStupnice(TypStupnice intervaly) {
-		return new Stupnice(this, intervaly);
+		return new DiatonickaStupnice(this, intervaly);
 	}
 	
 	public Akord newAkord(TypAkordu intervaly) {

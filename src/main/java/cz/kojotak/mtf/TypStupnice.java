@@ -1,6 +1,5 @@
 package cz.kojotak.mtf;
 
-import static cz.kojotak.mtf.JednoduchaVzdalenost.*;
 import static cz.kojotak.mtf.Interval.*;
 
 import java.util.List;
@@ -12,7 +11,6 @@ public enum TypStupnice {
 	PENTATONIKA_DUROVA(SEKUNDA_VELKA, TERCIE_VELKA, KVINTA, SEXTA_VELKA, OKTAVA),
 	PENTATONIKA_MOLLOVA(TERCIE_MALA, KVARTA, KVINTA, SEPTIMA_MALA, OKTAVA),
 	
-	CHROMATICKA( rostouciSekvenceIntervalu(1, OKTAVA.getPultonu()+1) ),
 	;
 	
 	private TypStupnice(Vzdalenost ... intervaly) {

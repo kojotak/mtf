@@ -1,16 +1,11 @@
 package cz.kojotak.mtf;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public record Stupnice (Ton ton, TypStupnice intervaly) {
+public interface Stupnice {
+
+	List<Ton> getTonyStupnice();
 	
-	public List<Ton> getTonyStupnice(){
-		return Stream.concat(
-				Stream.of(ton),
-				intervaly.getIntervaly().stream().map( i -> ton.pridejInterval(i) ))
-				.collect(Collectors.toList());
-	}
-	
+	Ton getTonika();
+
 }
