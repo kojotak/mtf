@@ -11,7 +11,7 @@ import cz.kojotak.mtf.stupnice.DiatonickaStupnice;
 
 public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 
-	private static final int PULTONU_V_OKTAVE = Interval.OKTAVA.getPultonu();
+	public static final int PULTONU_V_OKTAVE = Interval.OKTAVA.getPultonu();
 
 	public static final Map<Integer, List<Ton>> ZAKLADNI_TONY = Stream
 			.of( NazevTonu.values() )

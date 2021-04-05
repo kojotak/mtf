@@ -7,7 +7,7 @@ import java.util.List;
 
 public class KvartKvintovyKruh {
 	
-	private final int velikost = 12;
+	private final int velikost = Ton.PULTONU_V_OKTAVE;
 	private final LinkedList<Ton> kvinty = new LinkedList<Ton>();
 	private final LinkedList<Ton> kvarty = new LinkedList<Ton>();
 	private static final KvartKvintovyKruh INSTANCE = new KvartKvintovyKruh();
