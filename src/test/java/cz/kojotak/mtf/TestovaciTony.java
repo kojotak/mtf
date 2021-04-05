@@ -10,6 +10,7 @@ import static cz.kojotak.mtf.NazevTonu.H;
 import static cz.kojotak.mtf.Posuvka.BECKO;
 import static cz.kojotak.mtf.Posuvka.KRIZEK;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.List;
 
@@ -20,12 +21,21 @@ public abstract class TestovaciTony {
 			ces=new Ton(C,BECKO),des=new Ton(D,BECKO),es=new Ton(E,BECKO),fes=new Ton(F,BECKO),ges=new Ton(G,BECKO),as=new Ton(A,BECKO),hes=new Ton(H,BECKO),
 			b=hes;
 	
-	protected static void assertContainsAll(List<Ton> seznamTonu , Ton ...ocekavaneTony) {
+	protected static void assertContainsAllExact(List<Ton> seznamTonu , Ton ...ocekavaneTony) {
 		assertEquals( ocekavaneTony.length, seznamTonu.size() );
 		for(int i = 0; i < ocekavaneTony.length; i++) {
 			Ton testovany = seznamTonu.get(i);
 			Ton ocekavany = ocekavaneTony[i];
 			assertEquals(ocekavany.getPoradi(), testovany.getPoradi(), "i:"+i+", o:"+ocekavany+", t:"+testovany);
+		}
+	}
+	
+	protected static void assertContainsAllEnharmonicEquals(List<Ton> seznamTonu , Ton ...ocekavaneTony) {
+		assertEquals( ocekavaneTony.length, seznamTonu.size() );
+		for(int i = 0; i < ocekavaneTony.length; i++) {
+			Ton testovany = seznamTonu.get(i);
+			Ton ocekavany = ocekavaneTony[i];
+			assertTrue(ocekavany.equalsEnharmonicky(testovany), " enharmonicke stejne i:"+i+", o:"+ocekavany+", t:"+testovany);
 		}
 	}
 }

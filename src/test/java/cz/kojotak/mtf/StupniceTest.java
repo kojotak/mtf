@@ -21,7 +21,7 @@ class StupniceTest extends TestovaciTony {
 	@MethodSource
 	@ParameterizedTest(name="{index} {0} ma tony: {1}")
 	void pultonyVIntervalu(Stupnice stupnice, List<Ton> tony) {
-		assertContainsAll(stupnice.getTonyStupnice(), tony.toArray(new Ton[0]));
+		assertContainsAllExact(stupnice.getTonyStupnice(), tony.toArray(new Ton[0]));
 	}
 	
 	private static Stream<Arguments> pultonyVIntervalu() {

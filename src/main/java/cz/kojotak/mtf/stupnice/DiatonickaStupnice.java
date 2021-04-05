@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import cz.kojotak.mtf.KvartKvintovyKruh;
+import cz.kojotak.mtf.Predznamenani;
 import cz.kojotak.mtf.Stupnice;
 import cz.kojotak.mtf.Ton;
 import cz.kojotak.mtf.TypStupnice;

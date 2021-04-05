@@ -103,6 +103,15 @@ public record Ton(NazevTonu nazev, Posuvka posuvka, NazevOktavy oktava) {
 	public Akord newAkord(TypAkordu intervaly) {
 		return new Akord(this, intervaly);
 	}
+	
+	public boolean equalsEnharmonicky(Ton ton) {
+		for(Ton enharmonickyTon : ZAKLADNI_TONY.get(this.getPoradi())) {
+			if(enharmonickyTon.equals(ton)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	public static Ton ofMidi(int midiNumber){
 		int idxOktavy = midiNumber / PULTONU_V_OKTAVE;
