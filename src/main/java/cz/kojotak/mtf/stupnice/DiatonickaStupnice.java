@@ -25,4 +25,16 @@ public record DiatonickaStupnice (Ton tonika, TypStupnice intervaly) implements 
 		return tonika;
 	}
 	
+	//TODO omezit pouze na sedmistupnovou stupnici (heptatonic vs pentatonic)?
+	public Predznamenani getPredznamenani() {
+		switch(intervaly) {
+			case DUROVA:
+				return KvartKvintovyKruh.getDurovePredznamenani(tonika);
+			case MOLLOVA:
+				return KvartKvintovyKruh.getMollovePredznamenani(tonika);
+			default:
+				return null;
+		}
+	}
+	
 }
