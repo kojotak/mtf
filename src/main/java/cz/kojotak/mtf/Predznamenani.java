@@ -1,24 +1,28 @@
 package cz.kojotak.mtf;
 
 import java.util.Collections;
+import java.util.EnumSet;
 import java.util.List;
-
-//TODO udelat neco jako strukturu, ktera ma bud krizky nebo becka, nikoliv oboji
-public record Predznamenani(List<Ton> krizky, List<Ton> becka) {
+import static cz.kojotak.mtf.Posuvka.*;
+public record Predznamenani(Posuvka posuvka, List<Ton> tony) {
 	
-	public Predznamenani(List<Ton> krizky, List<Ton> becka) {
-		this.krizky = krizky != null ? krizky : Collections.emptyList();
-		this.becka = becka!=null ? becka : Collections.emptyList();
-		if( getKrizku() > 0 && getBecek() > 0) {
-			throw new IllegalArgumentException("Nelze vytvorit predznamenani s krizky i becky!");
+	public Predznamenani(Posuvka posuvka, List<Ton> tony) {
+		this.tony = tony != null ? tony : Collections.emptyList();
+		this.posuvka = posuvka != null ? posuvka : Posuvka.ODRAZKA;
+		if( !EnumSet.of(KRIZEK, BECKO, ODRAZKA).contains(this.posuvka)) {
+			throw new IllegalArgumentException("Neplatna posuvka "+posuvka+" pro predznamenani!");
 		}
 	}
 	
+	public int getPocet() {
+		return tony.size();
+	}
+	
 	public int getKrizku() {
-		return krizky.size();
+		return KRIZEK.equals(posuvka) ? tony.size() : 0;
 	}
 	
 	public int getBecek() {
-		return becka.size();
+		return BECKO.equals(posuvka) ? tony.size() : 0;
 	}
 }
