@@ -96,20 +96,4 @@ class StupniceTest extends TestovaciTony {
 		return midiCislaTonu();
 	}
 	
-	@MethodSource
-	@ParameterizedTest(name="{index} stupnice {1} ma predznamenani {0}")
-	public void predznamenaniStupnice(Predznamenani ocekavanePredznamenani, DiatonickaStupnice stupnice){
-		Predznamenani predznamenani = stupnice.getPredznamenani();
-		assertEquals(ocekavanePredznamenani.getBecek(), predznamenani.getBecek());
-		assertEquals(ocekavanePredznamenani.getKrizku(), predznamenani.getKrizku());
-	}
-
-	private static Stream<Arguments> predznamenaniStupnice(){
-		 return Stream.of(
-	    		 Arguments.of(new Predznamenani(null,null), new DiatonickaStupnice(c, TypStupnice.DUROVA) ),
-	    		 //Arguments.of(new Predznamenani(List.of(f),null), new DiatonickaStupnice(c, TypStupnice.DUROVA) ) 
-	    		 Arguments.of(new Predznamenani(null,null), new DiatonickaStupnice(a, TypStupnice.MOLLOVA) )
-	    		 );
-	}
-	
 } 
