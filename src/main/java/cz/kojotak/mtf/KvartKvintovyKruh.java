@@ -1,11 +1,10 @@
 package cz.kojotak.mtf;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
-import cz.kojotak.mtf.util.InfiniteIterator;
 
 public class KvartKvintovyKruh {
 
@@ -27,72 +26,39 @@ public class KvartKvintovyKruh {
 		}
 	}
 
-	public static Iterator<Ton> getKvartovyIterator(Ton ton) {
-		return preskocNa(INSTANCE.kvarty, ton);
-	}
-
-	public static Iterator<Ton> getKvintovyIterator(Ton ton) {
-		return preskocNa(INSTANCE.kvinty, ton);
-	}
-
+	
 	public static List<Ton> getKvarty(Ton ton, int pocet) {
-		return vygeneruj(ton, preskocNa(INSTANCE.kvarty, ton), pocet);
+	return getTonyKruhu(ton, INSTANCE.kvarty, pocet);
 	}
 
 	public static List<Ton> getKvinty(Ton ton, int pocet) {
-		return vygeneruj(ton, preskocNa(INSTANCE.kvinty, ton), pocet);
+		return getTonyKruhu(ton, INSTANCE.kvinty, pocet);
 	}
-
-	public static Predznamenani getDurovePredznamenani(Ton ton) {
-		//fixme
-//		for (int i = 0; i <= VELIKOST / 2; i++) {
-//			if (INSTANCE.kvinty.get(i).equalsEnharmonicky(ton)) {
-//				return new Predznamenani(posbirejTonPredznamenani(INSTANCE.kvinty, ton, i),null);
-//			}
-//		}
-//		for (int i = 0; i <= VELIKOST / 2; i++) {
-//			if (INSTANCE.kvinty.get(VELIKOST - i).equalsEnharmonicky(ton)) {
-//				return new Predznamenani(posbirejTonPredznamenani(INSTANCE.kvinty, ton, i),null);
-//			}
-//		}
-		return new Predznamenani(null, null);
-	}
-
-	private static List<Ton> posbirejTonPredznamenani(List<Ton> tony, Ton ton, int pocet){
-		Iterator<Ton> it = preskocNa(INSTANCE.kvinty, ton).reversed();
-	    it.next();
-	    it.next();
-	    List<Ton> result = new ArrayList<>();
-		for(int i = 0; i<pocet; i++) {
-			result.add(it.next());
+	
+	private static List<Ton> getTonyKruhu(Ton ton, List<Ton> kruh, int pocet) {
+		List<Ton> result = new ArrayList<>();
+		int idx = 0;
+		while(result.size()<=pocet) {
+			Ton t = kruh.get(idx);
+			if(t.equalsEnharmonicky(ton) || !result.isEmpty()) {
+				result.add(t);
+			}
+			idx++;
+			if(idx>=VELIKOST) {
+				idx=0;
+			}
 		}
 		return result;
 	}
 
+	public static Predznamenani getDurovePredznamenani(Ton ton) {
+		//fixme
+		return Predznamenani.zadne();
+	}
+
 	public static Predznamenani getMollovePredznamenani(Ton ton) {
-		return new Predznamenani(null, null);
+		return Predznamenani.zadne();
 	}
 
-	static List<Ton> vygeneruj(Ton pocatecni, Iterator<Ton> it, int pocet) {
-		List<Ton> list = new ArrayList<Ton>();
-		list.add(pocatecni);
-		for (int i = 0; i < pocet; i++) {
-			list.add(it.next());
-		}
-		return list;
-	}
-
-	static InfiniteIterator<Ton> preskocNa(List<Ton> list, Ton t) {
-		if (list == null) {
-			throw new IllegalArgumentException("Nelze preskakovat v prazdnem seznamu");
-		}
-		InfiniteIterator<Ton> iterator = new InfiniteIterator<>(list);
-		do {
-			Ton dalsi = iterator.next();
-			if (dalsi.equalsEnharmonicky(t)) {
-				return iterator;
-			}
-		} while (true);
-	}
 
 }
